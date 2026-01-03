@@ -1,8 +1,10 @@
-# Volatility_Surface
-Visualizing Volatility in a variety of ways!
+This project began as toy code for visualizing volatility using yfinance data. The result included multiple graphic outputs, the most "convoluted" being the volatility surface. In this README, I will detail my goals for the project; however, much is subject to change. So, progress will be gradual as I continue in my education.
 
-I used Yahoo Finance data to plot the volatility smile, surface, and term in a Jupyter notebook. In the (ideally, near) future, I will implement this into Visual Studio code. I tried doing it earlier, but realized that this is a great opportunity to practice making a user interface! Still, that will be time ineffective for my present goals, so I will need to come back to it later. I think it would be cool to have a sliding scale input for the vol_term() function so that one can visualize the change in the term volatility as the strike price changes. 
+Still, this hardly amounted to much of a project, and I wanted to reinvent the idea into a more rigorous research and trading product. So, I broke it down into three segments that I plan to work on over the Spring '26 semester. Segment 1 is the first Jupyter notebook included in this repo. It pulls options data from y finance and visualizes IV with respect to time, strike, etc. 
 
-Likewise, since the Expiry column has really ugly entries, I'd prefer to have a dropdown input for the vol_smile() function so that it is more usable.
+Segment 2 is where I build out a PINN governed by Dupire local volatility PDE. A Physics Informed Neural Network (PINN) is a neural net with two loss functions. One prioritizes fitting the avaliable data, and the other prioritizes conformity to the governing PDE. Of course, this is not strict enforcement, but it does penalize deviance from the underlying physics of the problem. So, while it may not be perfect, it should do a pretty good job at enforcing arbitrage-free conditions. Then, I will calibrate a Heston model to the original yfinance IV values. I can then generate plots of and compare the yfinance, PINN, and Heston volatility surfaces. 
 
-Regardless, if you're a recruiter, you should talk with me about this during our interview :p! Better yet, just hire me, and we can talk about it on lunch break lol (I need a job)
+Segment 3 will then rely on building out a trading simulation. I will flesh out the trading signals as they become more apparent, but the gist is to use the PINN as a more informed perspective on volatility. So, compared to other pricing methods, it can be reasonably assumed that the PINN will provide better volatility inputs.
+
+
+
